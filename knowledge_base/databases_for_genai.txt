@@ -1,0 +1,6 @@
+# Databases for GenAI & Production RAG Systems
+Key concepts covered in AI Academy Module 4:
+1. Hybrid Search: Combining sparse lexical retrieval (BM25) with dense vector embeddings using Reciprocal Rank Fusion (RRF) to ensure high semantic recall while catching exact keywords, acronyms, and part numbers.
+2. Reranking: Employing cross-encoder models (e.g. Cohere, BGE-Reranker) to rescore candidate chunks from vector search, addressing vector distance distortion and boosting top-k precision.
+3. ColPali Architecture: Vision-Language Model (VLM) document indexing based on PaliGemma and ColBERT late interaction. Indexes pages directly as visual images, bypassing error-prone OCR and preserving complex tables, charts, and spatial formatting.
+4. Agentic RAG: Extending static single-shot retrieval pipelines into dynamic, multi-step agentic workflows where autonomous models reason over intermediate findings, query tools iteratively, and critique their own retrieved context.

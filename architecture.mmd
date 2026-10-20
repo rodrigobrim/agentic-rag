@@ -1,0 +1,25 @@
+graph TD
+    User([User Request / Task]) --> AgentCore[Agentic Orchestrator & Reasoning Core]
+    
+    subgraph Reasoning & Planning Loop
+        AgentCore --> Thought[1. Autonomous Thought & Plan]
+        Thought --> ToolSelection[2. Tool Selection & Execution]
+        ToolSelection --> Observation[3. Tool Observation & Analysis]
+        Observation --> Reflection[4. Self-Reflection & Evaluation]
+        Reflection -->|Needs Correction / Refinement| Thought
+        Reflection -->|Validated & Grounded| FinalOutput[5. Formulate Final Response]
+    end
+
+    subgraph Tool Calling Suite
+        ToolSelection -.-> ToolRAG[Tool: RAG Knowledge Retrieval]
+        ToolSelection -.-> ToolInspect[Tool: File & Repo Inspector]
+        ToolSelection -.-> ToolEval[Tool: Self-Critique & Metrics Evaluator]
+        ToolSelection -.-> ToolSocial[Tool: Autonomous Social Post Generator]
+    end
+
+    subgraph Data & Storage
+        ToolRAG --> VectorDB[(ChromaDB / Vector Store)]
+        ToolInspect --> RepoFiles[(Local Codebase & Documents)]
+    end
+
+    FinalOutput --> Deliverables([Task Solution + Autonomous LinkedIn Post])
